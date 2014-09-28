@@ -69,7 +69,7 @@ write_boot() {
     ui_print " "; ui_print "Repacking image failed. Aborting...";
     echo 1 > /tmp/anykernel/exitcode; exit;
   fi;
-  dd if=/tmp/anykernel/boot-new.img of=$block;
+  flash_image boot /tmp/anykernel/boot-new.img;
 }
 
 # backup_file <file>
