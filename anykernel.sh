@@ -32,7 +32,8 @@ ui_print() { echo "ui_print $1" >&$OUTFD; echo "ui_print" >&$OUTFD; }
 
 # dump boot and extract ramdisk
 dump_boot() {
-  dd if=$block of=/tmp/anykernel/boot.img;
+  #dd if=$block of=/tmp/anykernel/boot.img;
+  cat $block > /tmp/anykernel/boot.img;
   $bin/unpackbootimg -i /tmp/anykernel/boot.img -o $split_img;
   if [ $? != 0 ]; then
     ui_print " "; ui_print "Dumping/unpacking image failed. Aborting...";
