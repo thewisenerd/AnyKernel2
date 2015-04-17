@@ -6,7 +6,7 @@
 kernel.string=CodyKernel by thewisenerd @ xda-developers
 do.devicecheck=1
 do.initd=0
-do.modules=0
+do.modules=1
 do.cleanup=1
 device.name1=armani
 device.name2=
@@ -155,8 +155,8 @@ chmod -R 755 $ramdisk
 dump_boot;
 
 # copy init.d script
-cp --force --preserve $initd/* /system/etc/init.d/;
-set_perm_recursive 0 0 0755 0755 /system/etc/init.d;
+cp -fp $initd/* /system/etc/init.d/;
+chmod -R 0755 /system/etc/init.d;
 
 write_boot;
 
