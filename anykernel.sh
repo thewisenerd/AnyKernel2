@@ -3,7 +3,7 @@
 
 ## AnyKernel setup
 # EDIFY properties
-kernel.string=CodyKernel by thewisenerd @ xda-developers
+kernel.string=#.kernel_string.#
 do.devicecheck=1
 do.initd=0
 do.modules=1
@@ -26,7 +26,6 @@ ramdisk=/tmp/anykernel/ramdisk;
 bin=/tmp/anykernel/tools;
 split_img=/tmp/anykernel/split_img;
 patch=/tmp/anykernel/patch;
-initd=/tmp/anykernel/initd;
 
 chmod -R 755 $bin;
 mkdir -p $ramdisk $split_img;
@@ -153,10 +152,6 @@ chmod -R 755 $ramdisk
 
 ## AnyKernel install
 dump_boot;
-
-# copy init.d script
-cp -fp $initd/* /system/etc/init.d/;
-chmod -R 0755 /system/etc/init.d;
 
 write_boot;
 
